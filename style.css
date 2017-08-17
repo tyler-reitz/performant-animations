@@ -1,0 +1,80 @@
+* {
+  font-family: sans-serif;
+}
+
+nav {
+  height: 5rem;
+  background-color: rgba(255, 99, 71, 0.125);
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  width: 33%;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.logo {
+  color: tomato;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  background: rgba(0,0,255,0.125);
+  height: 100vh;
+
+  position: absolute;
+  width: 33vw;
+
+  transform: translateX(-100%);
+  transition: 0.2s;
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+.mobile-menu.active {
+  transform: translateX(0)
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.box {
+  width: 25vw;
+  height: 25vh;
+  background-color: tomato;
+  border-radius: 0.5rem;
+
+  position: relative;
+
+  animation-name: spin;
+  animation-duration: 3ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.box::before {
+  content: '';
+  box-shadow: 1px 1px 4px rgb(0,0,0);
+  opacity: 0.5;
+  transition: 0.2s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.box:hover:before {
+  opacity: 1;
+}
+
+.box-shadow {
+  box-shadow: 1px 1px 4px rgba(0,0,0,.5)
+}
